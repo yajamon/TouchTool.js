@@ -10,6 +10,13 @@ var TouchTool = TouchTool || {};
 		this.x = pointObject.x;
 		this.y = pointObject.y;
 	};
+	Point.prototype.getDistanceBy = function(pointObject) {
+		var diffX = pointObject.x - this.x;
+		var diffY = pointObject.y - this.y;
+
+		var moveDistance = Math.pow(diffX, 2) + Math.pow(diffY, 2);
+		return Math.sqrt(moveDistance);
+	};
 
 
 	var _start = {
@@ -43,11 +50,7 @@ var TouchTool = TouchTool || {};
 			return;
 		}
 
-		var diffX = _moved.point.x - _start.point.x;
-		var diffY = _moved.point.y - _start.point.y;
-
-		var moveDistance = Math.pow(diffX, 2) + Math.pow(diffY, 2);
-		moveDistance = Math.sqrt(moveDistance);
+		var moveDistance = _start.point.getDistanceBy(_moved.point);
 
 		if (moveDistance > TouchTool.threshold){
 			_movedFlag = true;
