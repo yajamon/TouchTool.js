@@ -7,22 +7,31 @@
 </head>
 <body>
 <div id="target" style="width 400px; height:300px; background-color:Green;">
+</div>
+<div>
+	<span id="event_name"></span><br />
+	<span id="is_tap"></span>
+</div>
 <script type="text/javascript">
 // DEMO Script
-var target = document.getElementById('target');
+var target     = document.getElementById('target');
+var event_name = document.getElementById('event_name');
+var is_tap     = document.getElementById('is_tap');
+
+
 target.addEventListener('touchstart',function(touchEvent){
 	TouchTool.setStartPoint(touchEvent);
-	console.log('touch start');
+	event_name.innerText = 'touch start';
+	is_tap.innerText = 'Tap? : ';
 });
 target.addEventListener('touchmove',function(touchEvent){
 	TouchTool.setMovedPoint(touchEvent);
-	console.log('moving');
+	event_name.innerText = 'moving';
 });
 target.addEventListener('touchend',function(touchEvent){
-	console.log('touch end');
-	console.log('Tap? : '+TouchTool.isTap());
+	event_name.innerText = 'touch end';
+	is_tap.innerText = 'Tap? : '+TouchTool.isTap();
 });
 </script>
-</div>
 </body>
 </html>
