@@ -60,8 +60,6 @@ var TouchTool = TouchTool || {};
 
 		if (moveDistance > TouchTool.threshold){
 			_movedFlag = true;
-		} else {
-			_movedFlag = false;
 		}
 	}
 
