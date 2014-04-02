@@ -30,13 +30,19 @@ var TouchTool = TouchTool || {};
 	//
 	var _movedFlag = false;
 
-	TouchTool.__defineSetter__('threshold', function (value) {
-		_threshold = value;
-	});
-	TouchTool.__defineGetter__('threshold', function () {
-		return _threshold;
-	});
-
+	Object.defineProperty(
+		TouchTool,
+		'threshold',
+		{
+			get : function () {
+				return _threshold;
+			},
+			set : function (value) {
+				_threshold = value;
+			},
+			configurable : true,
+		}
+	);
 
 	function _setPoint(pointObject, touchEvent){
 		pointObject.setPoint({
