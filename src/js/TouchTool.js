@@ -9,23 +9,15 @@ var TouchTool = TouchTool || {};
 	Object.defineProperty(Point.prototype,
 		'x',
 		{
-			get : function () {
-				return this._x;
-			},
-			set : function (value) {
-				this._x = value;
-			}
+			get : function (){return this._x; },
+			set : function (value){this._x = value; }
 		}
 	);
 	Object.defineProperty(Point.prototype,
 		'y',
 		{
-			get : function () {
-				return this._y;
-			},
-			set : function (value) {
-				this._y = value;
-			}
+			get : function () {return this._y; },
+			set : function (value) {this._y = value; }
 		}
 	);
 	Point.prototype.setPoint = function(pointObject) {
