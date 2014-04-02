@@ -3,9 +3,31 @@ var TouchTool = TouchTool || {};
 // Closure
 (function () {
 	var Point = function(){
-		this.x=0;
-		this.y=0;
+		this._x=0;
+		this._y=0;
 	};
+	Object.defineProperty(Point.prototype,
+		'x',
+		{
+			get : function () {
+				return this._x;
+			},
+			set : function (value) {
+				this._x = value;
+			}
+		}
+	);
+	Object.defineProperty(Point.prototype,
+		'y',
+		{
+			get : function () {
+				return this._y;
+			},
+			set : function (value) {
+				this._y = value;
+			}
+		}
+	);
 	Point.prototype.setPoint = function(pointObject) {
 		this.x = pointObject.x;
 		this.y = pointObject.y;
